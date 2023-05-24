@@ -2,15 +2,15 @@ function newImage = shear(image, ax, ay)
 %shear Summary of this function goes here
 %   Detailed explanation goes here
 A = [1 ay 0;
-     ax 1 0;
-     0 0 1];
- %Convert to double
-a= double(image); 
+    ax 1 0;
+    0 0 1];
+%Convert to double
+a= double(image);
 [outx, outy] = transform(a, A);
-%% Forming the transformed image
+% Forming the transformed image
 f = formImage(outx, outy, a);
 
-%% Fill the gaps
+% Fill the gaps
 %Fill in the gaps By using Median Filter
 newImage = uint8(medianFilter(f, a));
 end
