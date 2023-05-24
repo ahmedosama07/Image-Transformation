@@ -1,8 +1,16 @@
-function newImage = shear(image, a)
-%UNTITLED3 Summary of this function goes here
+function newImage = shear(image, ax, ay)
+%shear Summary of this function goes here
 %   Detailed explanation goes here
-T = maketform('affine', [1 0 0; a 1 0; 0 0 1] );
-R = makeresampler({'cubic','nearest'},'fill');
-newImage = imtransform(image,T,R,'FillValues', [0 0 0]); 
-end
+A = [1 ay 0;
+     ax 1 0;
+     0 0 1];
+ %Convert to double
+a= double(image); 
+[outx, outy] = transform(a, A);
+%% Forming the transformed image
+f = formImage(outx, outy, a);
 
+%% Fill the gaps
+%Fill in the gaps By using Median Filter
+newImage = uint8(medianFilter(f, a));
+end
