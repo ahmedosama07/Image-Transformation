@@ -3,12 +3,12 @@ clear;
 % close all;
 tic
 %% Input Image
-[file,path] = uigetfile('*.*');
-f1 = fullfile(path,file);
-if prod(double(file) == 0) && prod(double(path) == 0)
-    return
-end   
-a = imread(f1);
+% [file,path] = uigetfile('*.*');
+% f1 = fullfile(path,file);
+% if prod(double(file) == 0) && prod(double(path) == 0)
+%     return
+% end   
+a = imread("cat.jpg");
 
 
 %% Input Formating
