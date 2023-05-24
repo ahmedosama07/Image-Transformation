@@ -13,6 +13,4 @@ f = formImage(outx, outy, a);
 %% Fill the gaps
 %Fill in the gaps By using Median Filter
 newImage = uint8(medianFilter(f, a));
-
 end
-
