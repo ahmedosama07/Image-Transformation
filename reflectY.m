@@ -1,8 +1,9 @@
 function newImage = reflectY(image)
 %reflectY Summary of this function goes here
 %   Detailed explanation goes here
-A = [-1 0;
-     0 1];
+A = [-1 0 0;
+     0 1 0;
+     0 0 1];
 %Convert to double
 a= double(image);
 [outx, outy] = transform(a, A);
